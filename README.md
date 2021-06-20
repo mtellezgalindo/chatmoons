@@ -1,2 +1,2 @@
-Esto proyecto se iniciar con npm index.js
+Esto proyecto se iniciar con node index.js
 
