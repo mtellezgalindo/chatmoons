@@ -1,25 +1,35 @@
-const express = require('express')
-const app = express()
-const server = require('http').createServer(app)
-const port = process.env.PORT || 3000
-const io = require('socket.io')(server)
-const path = require('path')
+var app=require('express')();
+var http=require('http').Server(app);
+var io=require('socket.io')(http);
 
-app.use(express.static(path.join(__dirname + '/public')))
-
-io.on('connection', socket => {
-  console.log('Some client connected')
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/')
 })
 
-server.listen(port, () => {
-  console.log(`Server running on port: ${port}`)
-})
 
 io.on('connection', socket => {
-    // console.log('Some client connected')
-  
-    socket.on('chat', message => {
-      // console.log('From client: ', message)
-      io.emit('chat', message)
-    })
+  var username;
+  socket.on('crearUsuario',function(data) {
+    username = data
   })
+
+  socket.on('mensajeNuevo',function(data) {
+
+    socket.broadcast.emit('mensaje',{
+      username: username,
+      mensaje:data
+    })
+
+    socket.emit('mensaje',{
+      username: username,
+      mensaje:data
+    })
+
+    
+  })
+})
+
+http.listen(3006,function*(){
+  console.log('Server Ready');
+})
+

@@ -2,48 +2,6 @@ body{
     background-color: #fff;
     font-family: ModernEra,sans-serif;
 }
-#container {
-    width: 700px;
-    margin: 0 auto;
-  }
-  .chat-input {
-    margin-top: 24px;
-    width: 50%;
-    height: 60px;
-    font-size: 16px;
-    font-weight: 500;
-    background: none;
-    color: #223254;
-    transition: all .15s ease;
-    border-radius: 11px;
-  }
-  .chat-submit {
-    width: 50px;
-    height: 35px;
-    background-color:#f7464e;
-    font-weight: 700;
-    border: none;
-    color: white;
-    border-radius:4px
-  }
-  .chat-window {
-    padding: 15px;
-    width: 90%;
-    height: 400px;
-    font-family: ModernEra,serif;
-    font-size: 16px;
-    border-radius: 28px;
-    box-shadow: 4px 4px 10px 0 rgb(7 82 249 / 45%);
-    margin: 10px;
-    outline: none;
-    cursor: pointer;
-    }
-
-  .chat-label {
-      color: #0e51f9;
-  }
-  #chatSection {
-    float: left;
-    border-radius: 10px;
-    padding: 10px;
-  }
+.chat{
+  display:none;
+}
